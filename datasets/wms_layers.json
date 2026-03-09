@@ -1,0 +1,1073 @@
+{
+  "buildings": {
+    "url": "https://data.bev.gv.at/geoserver/BEVdataDLM/wms",
+    "version": "1.3.0",
+    "description": "BEV buildings / DLM",
+    "layers": {
+      "DLM_Bauten": {
+        "title": "DLM Bauten",
+        "abstract": "Der Objektbereich Bauten umfasst in Form von hochgenauer Vektorgrafik mit Attributen als Basis für Geographische Informationssysteme flächendeckend für Österreich die Elemente:\r\n(a) Objekte (koordinat",
+        "bbox_wgs84": [
+          9.19524853364313,
+          46.25028886248569,
+          17.437716818701254,
+          49.09974260328655
+        ]
+      },
+      "BAU_2800_STROMMAST_P": {
+        "title": "Strommasten",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.452838873809004,
+          46.47125910557651,
+          17.176651093059384,
+          48.86837146784628
+        ]
+      },
+      "BAU_2400_FREIZEIT_P": {
+        "title": "Sport- und Freizeiteinrichtungen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.444788262002186,
+          46.383949592714224,
+          17.17631653713548,
+          49.015150810808485
+        ]
+      },
+      "BAU_2100_KOMMUNAL_P": {
+        "title": "Kommunale Einrichtungen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.44596137954992,
+          46.33066248294596,
+          17.179559511638846,
+          49.01156336369985
+        ]
+      },
+      "BAU_2300_KULTUR_P": {
+        "title": "Kulturelle Einrichtungen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.418609365510289,
+          46.36009405981288,
+          17.179865981686195,
+          49.02158579644842
+        ]
+      },
+      "BAU_2200_BETRIEB_P": {
+        "title": "Betriebseinrichtungen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.432471692254197,
+          46.36262949995191,
+          17.172215958876993,
+          49.02106032987311
+        ]
+      },
+      "BAU_2600_SCHUTZ_P": {
+        "title": "Schutzeinrichtungen",
+        "abstract": "",
+        "bbox_wgs84": [
+          11.569751888325568,
+          46.94008053152462,
+          16.873507153533655,
+          48.87220100003911
+        ]
+      },
+      "BAU_2500_SONSTIGE_L": {
+        "title": "Sonstige Linienobjekte",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.52825316365912,
+          46.50222228307895,
+          16.9507396064197,
+          48.65827145970995
+        ]
+      },
+      "BAU_2700_STROMLEITUNG_L": {
+        "title": "Stromleitungen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.452838873809004,
+          46.47125910557651,
+          17.176651093059384,
+          48.86837146784628
+        ]
+      },
+      "DLM_Bauwerke_u_Gebaeude": {
+        "title": "DLM Bauwerke und Gebäude",
+        "abstract": "Der Objektbereich DLM - Bauwerke stellt einen österreichweiten, vollständigen und homogenen Bauwerksbestand in Vektorform dar. Die je Polygon mitgeführten Attribute ermöglichen auf Grund mehrerer Höhe",
+        "bbox_wgs84": [
+          9.201178998806476,
+          46.27213404084991,
+          17.42423759258707,
+          49.09567454107669
+        ]
+      },
+      "BWK_8100_BAUWERK_F": {
+        "title": "Bauwerke & Gebäude",
+        "abstract": "Ein Bauwerk ist eine dem Augenschein nach auf Dauer errichtete Anlage mit einer Mindestgröße von 20m², einem Dach und wenigstens zwei Wänden, welche betreten werden kann und dazu bestimmt ist, \r\nMensc",
+        "bbox_wgs84": [
+          9.408207152316733,
+          46.33949459194168,
+          17.219441022972244,
+          49.02878221907826
+        ]
+      },
+      "DLM_Bodenbedeckung": {
+        "title": "DLM Bodenbedeckung",
+        "abstract": "Der Objektbereich Bodenbedeckung umfasst in Form von hochgenauer Vektorgrafik mit Attributen als Basis für Geographische Informationssysteme flächendeckend für Österreich die Elemente:\r\n(a) die Fläche",
+        "bbox_wgs84": [
+          9.196333389425805,
+          46.29298703436933,
+          17.404283055005482,
+          49.09557490233527
+        ]
+      },
+      "BOD_5300_WASSER_F": {
+        "title": "Gewässerflächen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.402070671677306,
+          46.3605522540748,
+          17.201928566935685,
+          49.0284763909296
+        ]
+      },
+      "DLM_Gebietsnutzung": {
+        "title": "DLM Gebietsnutzung",
+        "abstract": "Der Objektbereich Gebietsnutzung umfasst in Form von hochgenauer Vektorgrafik mit Attributen als Basis für Geographische Informationssysteme flächendeckend für Österreich derzeit die Flächen der Berei",
+        "bbox_wgs84": [
+          9.242364534288209,
+          46.32032214348532,
+          17.37990473005597,
+          49.086699846537435
+        ]
+      },
+      "GEB_3100_SCHUTZ_F": {
+        "title": "Flächen von Schutzeinrichtungen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.405156109514072,
+          46.31762880179546,
+          17.233219119599035,
+          49.02574438620956
+        ]
+      },
+      "GEB_3200_FREIZEIT_F": {
+        "title": "Flächen von Freizeiteinrichtungen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.443397723451044,
+          46.38387767978427,
+          17.177533633203492,
+          49.02099915288912
+        ]
+      },
+      "GEB_3300_VERKEHR_F": {
+        "title": "Flächen von Verkehrseinrichtungen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.448419413141687,
+          46.390125109083584,
+          17.181453192135507,
+          49.00632417589186
+        ]
+      },
+      "GEB_3400_BETRIEB_F": {
+        "title": "Flächen von Betriebseinrichtungen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.459849946362995,
+          46.42308919842423,
+          17.167703409701605,
+          48.957935260069505
+        ]
+      },
+      "DLM_Gewaesser": {
+        "title": "DLM Gewässer",
+        "abstract": "Der Objektbereich Gewässer umfasst in Form von hochgenauer Vektorgrafik mit Attributen als Basis für Geographische Informationssysteme flächendeckend für Österreich die Elemente:\r\n(a) alle fließenden ",
+        "bbox_wgs84": [
+          9.25588803844578,
+          46.265875170097274,
+          17.328572244850676,
+          49.04229212198842
+        ]
+      },
+      "GEW_4100_FLIESSEND_L": {
+        "title": "Fließende Gewässer – Linien",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.369229164419874,
+          46.33501283931012,
+          17.385611895923056,
+          49.03356880932322
+        ]
+      },
+      "GEW_4200_VERSORGUNG_L": {
+        "title": "Versorgungsleitungen - Linien",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.574074411970567,
+          46.46056222942011,
+          16.327256177231643,
+          48.51705545527356
+        ]
+      },
+      "GEW_4400_BAUTEN_L": {
+        "title": "Gewässerbauten - Linien",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.454830466367124,
+          46.41951989051214,
+          17.042538701180508,
+          48.97696827412726
+        ]
+      },
+      "GEW_4300_BAUTEN_P": {
+        "title": "Gewässerbauten - Punkte",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.456695930058055,
+          46.33157895374718,
+          17.13183737249226,
+          48.97168168020752
+        ]
+      },
+      "DLM_Namen": {
+        "title": "DLM Geographische Namen",
+        "abstract": "Der Objektbereich Namen umfasst die koordinativen Bezugspunkte mit Attributen von derzeit mehr als 220 000 Namen von Österreich:\r\n• Siedlungsnamen (Städte, Märkte, Dörfer, Stadtteile und Einzelobjekte",
+        "bbox_wgs84": [
+          9.19524853364313,
+          46.25028886248569,
+          17.437716818701254,
+          49.09974260328655
+        ]
+      },
+      "NAM_7100_SIEDLUNG_P": {
+        "title": "Siedlungsnamen",
+        "abstract": "Siedlungsnamen (Städte, Märkte, Dörfer, Stadtteile und Einzelobjekte)",
+        "bbox_wgs84": [
+          9.418219616104615,
+          46.339850134185,
+          17.200012291827132,
+          49.022739504334076
+        ]
+      },
+      "NAM_7200_GEBIET_P": {
+        "title": "Gebietsnamen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.418398964708997,
+          46.349729893713935,
+          17.213763709186182,
+          49.02619381522641
+        ]
+      },
+      "NAM_7300_GELAENDEFORM_P": {
+        "title": "Geländenamen (Gebirge, Berge und Täler)",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.43197013184276,
+          46.31935921912142,
+          17.084814172413896,
+          49.01876957474401
+        ]
+      },
+      "NAM_7400_GLETSCHER_P": {
+        "title": "Gletschernamen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.672876426714142,
+          46.55481845458398,
+          13.632949956196756,
+          47.494629479044924
+        ]
+      },
+      "NAM_7500_GEWAESSER_P": {
+        "title": "Gewässernamen",
+        "abstract": "Gewässernamen (Flüsse, Bäche, Seen und Teiche)",
+        "bbox_wgs84": [
+          9.415347499774512,
+          46.36799547377735,
+          17.18000758538023,
+          49.02909729216234
+        ]
+      },
+      "NAM_7600_SONSTIGE_P": {
+        "title": "Sonstige Namen",
+        "abstract": "Eigennamen von definierten DLM-Objekten",
+        "bbox_wgs84": [
+          9.441404668712643,
+          46.330544695972435,
+          17.176009820566737,
+          49.02106202327891
+        ]
+      },
+      "NAM_7700_RIED_P": {
+        "title": "Riednamen",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.413153054223898,
+          46.34004692556201,
+          17.227046999054238,
+          49.02811870831287
+        ]
+      },
+      "DLM_Verkehr": {
+        "title": "DLM Verkehr",
+        "abstract": "Der Objektbereich Verkehr umfasst in Form von hochgenauer Vektorgrafik mit Attributen als Basis für Geographische Informationssysteme flächendeckend für Österreich folgende Elemente:\r\n(a) alle Straßen",
+        "bbox_wgs84": [
+          9.404405512401969,
+          46.31777357873312,
+          17.2304352483348,
+          49.032791645631825
+        ]
+      },
+      "VER_1500_LIFTSTATION_P": {
+        "title": "Liftstationen - Punkte",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.479462794188393,
+          46.41709704818793,
+          16.477478494350564,
+          48.92051400258564
+        ]
+      },
+      "VER_1300_BAHN_L": {
+        "title": "Eisenbahnen",
+        "abstract": "Eisenbahnen (inkl. Schmalspur-, Zahnrad-, Straßen-/U-Bahnen)",
+        "bbox_wgs84": [
+          9.445782299548478,
+          46.423204961465345,
+          17.166364412201215,
+          48.95465054372131
+        ]
+      },
+      "VER_1100_STRASSE_L": {
+        "title": "Straßen und Wege",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.404432591053292,
+          46.317781942676355,
+          17.230423334832455,
+          49.03278367335389
+        ]
+      },
+      "VER_1400_LIFT_L": {
+        "title": "Lifte – Linien",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.479462794188393,
+          46.41709704818793,
+          16.477478494350564,
+          48.92051400258564
+        ]
+      },
+      "VER_1200_BAUTEN_P": {
+        "title": "Anlagen und Bauwerke für Verkehr",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.425151423426398,
+          46.363051260889684,
+          17.188073943176356,
+          49.01478103717436
+        ]
+      }
+    }
+  },
+  "dtm": {
+    "url": "https://wsa.bev.gv.at/GeoServer/Interceptor/Wms/EL-ALS-DTM/INSPIRE_KUNDEN-382e30c7-69df-4a53-9331-c44821d9916e",
+    "version": "1.3.0",
+    "description": "BEV Digital Terrain Model (ALS)",
+    "layers": {
+      "AT_BEV_EL_ALS_DTM": {
+        "title": "AT_BEV_EL_ALS_DTM",
+        "abstract": "",
+        "bbox_wgs84": [
+          8.736972081534075,
+          45.70747668356785,
+          18.223324221418387,
+          49.30024256019335
+        ]
+      },
+      "EL_ALS_DTM": {
+        "title": "EL_ALS_DTM",
+        "abstract": "Digital Terrain Model sourced from ALS, delivery 2023",
+        "bbox_wgs84": [
+          9.360608862429798,
+          46.267166713532575,
+          17.29878162014464,
+          49.11929622743724
+        ]
+      },
+      "EL_ALS_DTM_GRD_": {
+        "title": "EL_ALS_DTM_GRD",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.025805441954168,
+          45.801663191373265,
+          17.917392068727782,
+          49.21188040213074
+        ]
+      },
+      "EL_ALS_DTM_MD_": {
+        "title": "EL_ALS_DTM_MD",
+        "abstract": "Metadaten der ALS DTM",
+        "bbox_wgs84": [
+          9.511088742024908,
+          46.24614632143211,
+          17.294442427870333,
+          49.14352607169444
+        ]
+      }
+    }
+  },
+  "flood_risk": {
+    "url": "https://inspire.lfrz.gv.at/000801/wms",
+    "version": "1.3.0",
+    "description": "Hochwasserrisiko (HQ30 / HQ100 / HQ300 / significant flood risk)",
+    "layers": {
+      "APSFR": {
+        "title": "Gebiete mit potenziellem signifikantem Hochwasserrisiko (APSFR)",
+        "abstract": "Gebiete mit potenziellem signifikantem Hochwasserrisiko (APSFR) ausgewiesen als Gewässerstrecken durch die Bewertung verschiedener Kriterien entlang der Gewässer (Ergebnis der vorläufigen Bewertung de",
+        "bbox_wgs84": [
+          9.515412532465454,
+          46.35578974045242,
+          16.98210587472247,
+          48.92763975045363
+        ]
+      },
+      "Berichtsgewaessernetz des Bundes - Einzugsgebiete": {
+        "title": "Berichtsgewässernetz des Bundes - Einzugsgebiete",
+        "abstract": "Basiseinzugsgebiete aus dem Datenbestand des Berichtsgewässernetz des Bundes zur Erfüllung der Berichtspflichten gemäß Wasserrahmenrichtlinie (WRRL) und gemäß Hochwasserrichtlinie (HWRL)",
+        "bbox_wgs84": [
+          9.513187325246326,
+          46.245487586387355,
+          17.289042230596582,
+          49.132063314339746
+        ]
+      },
+      "Berichtsgewaessernetz des Bundes - Fliessgewaesser": {
+        "title": "Berichtsgewässernetz des Bundes - Fließgewässer",
+        "abstract": "Fließgewässer des Berichtsgewässernetz des Bundes zur Erfüllung der Berichtspflichten gemäß Wasserrahmenrichtlinie (WRRL) und gemäß Hochwasserrichtlinie (HWRL). Der Datensatz beinhaltet alle Gewässer ",
+        "bbox_wgs84": [
+          9.482752595415727,
+          46.27170320082584,
+          17.33837403967792,
+          49.132000353306275
+        ]
+      },
+      "Berichtsgewaessernetz des Bundes - Stehende Gewaesser": {
+        "title": "Berichtsgewässernetz des Bundes - Stehende Gewässer",
+        "abstract": "Seen des Berichtsgewässernetzes des Bundes zur Erfüllung der Berichtspflichten gemäß Wasserrahmenrichtlinie (WRRL) und gemäß Hochwasserrichtlinie (HWRL). Der Datensatz beinhaltet alle Seen Österreichs",
+        "bbox_wgs84": [
+          9.54754384819508,
+          46.38183788328509,
+          17.195985066995426,
+          49.12006951890328
+        ]
+      },
+      "Bioregionen - NGP 2009": {
+        "title": "Bioregionen - NGP 2009",
+        "abstract": "Fliessgewässer-Bioregionen, in Zusammenhang mit anderen Parametern Grundlage für Gewässertypisierungen, Außengrenze zumeist mit Einzugsgebietsgrenzen identisch; wurden auf Basis des Makrozoobenthos au",
+        "bbox_wgs84": [
+          9.402,
+          46.317,
+          17.23,
+          49.033
+        ]
+      },
+      "FLUSSGEBIETSEINHEIT_2009": {
+        "title": "Internationale Flussgebietseinheiten der WRRL 2009",
+        "abstract": "Internationale Einheit für Bearbeitungs-, Koordinations- und Darstellungszwecke der Wasserrahmenrichtlinie; umfasst den österreichischen Anteil an den Internationalen Flussgebietseinheiten; aggregiert",
+        "bbox_wgs84": [
+          9.402,
+          46.317,
+          17.23,
+          49.033
+        ]
+      },
+      "Fliessgewaessermessstellen": {
+        "title": "Fliessgewaessermessstellen",
+        "abstract": "Oberflächengewässermessnetz: Fliessgewässermessstellen gemäß Gewässerzustandsüberwachungsverordnung (GZÜV) BGBl. Nr. 479/2006 i.d.g.F. der Datensatz beinhaltet alle in der Gewässergüte-Fachdatenbank (",
+        "bbox_wgs84": [
+          9.409,
+          46.363,
+          17.148,
+          48.997
+        ]
+      },
+      "Flussordnungszahl - NGP2015": {
+        "title": "Flussordnungszahl - NGP2015",
+        "abstract": "Flussordnungszahlen der Oberflächengewässer - NGP 2015",
+        "bbox_wgs84": [
+          8.468,
+          45.501,
+          19.638,
+          49.713
+        ]
+      },
+      "Funktionsbereiche aus der Gefahrenzonenplanung": {
+        "title": "Funktionsbereiche aus der Gefahrenzonenplanung",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.519514255416961,
+          46.416749436902165,
+          16.542447574152344,
+          49.077337286121086
+        ]
+      },
+      "Gelbe Gefahrenzonen aus der Gefahrenzonenplanung": {
+        "title": "Gelbe Gefahrenzonen aus der Gefahrenzonenplanung",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.552972147363848,
+          46.37386377994669,
+          17.177322299285798,
+          48.61207142289059
+        ]
+      },
+      "Grundwasserkoerper - NGP2009": {
+        "title": "Grundwasserkörper - NGP2009",
+        "abstract": "Oberflächennahe, Tiefen, Thermal -  Einzelgrundwasserkörper und Gruppen von Grundwasserkörpern gemäß WRRL (inkl. Grundwasserkörper-Teilgebiete)",
+        "bbox_wgs84": [
+          9.401,
+          46.317,
+          17.229,
+          49.033
+        ]
+      },
+      "Grundwasserkoerper - NGP2015": {
+        "title": "Grundwasserkörper - NGP2015",
+        "abstract": "Oberflächennahe, Tiefen, Thermal -  Einzelgrundwasserkörper und Gruppen von Grundwasserkörpern gemäß WRRL (inkl. Grundwasserkörper-Teilgebiete)",
+        "bbox_wgs84": [
+          9.513,
+          46.246,
+          17.289,
+          49.132
+        ]
+      },
+      "Grundwasserkörper - NGP2021": {
+        "title": "Grundwasserkörper - NGP2021",
+        "abstract": "Oberflächennahe Einzelgrundwasserkörper und Gruppen von Grundwasserkörpern (inkl. Grundwasserkörper-Teilgebiete) sowie Tiefengrundwasserkörper (Gruppen von Grundwasserkörpern) gemäß WRRL",
+        "bbox_wgs84": [
+          9.513224680665331,
+          46.24550186489549,
+          17.28903308542433,
+          49.13225947001531
+        ]
+      },
+      "Grundwassermessstellen": {
+        "title": "Grundwassermessstellen",
+        "abstract": "Grundwassermessnetz: Poren, Karst und Kluftgrundwassermessstellen gemäß Gewässerzustandsüberwachungsverordnung (GZÜV) BGBl. Nr. 479/2006 i.d.g.F. der Datensatz beinhaltet alle in der Gewässergüte-Fach",
+        "bbox_wgs84": [
+          9.421253000369369,
+          46.39366754247226,
+          17.192017597820765,
+          48.93513569083498
+        ]
+      },
+      "Hochwasserrisikogebiete HQ100": {
+        "title": "Hochwasserrisikogebiete HQ100",
+        "abstract": "Gebiete mit potentiell signifikantem Hochwasserrisiko (APSFR) für ein Hochwasser hoher Wahrscheinlichkeit (Wiederkehrsintervall durchschnittlich 300 Jahre) (Schnittmenge von Daten aus Abflussuntersuch",
+        "bbox_wgs84": [
+          9.411,
+          46.445,
+          17.007,
+          48.908
+        ]
+      },
+      "Hochwasserrisikogebiete HQ30": {
+        "title": "Hochwasserrisikogebiete HQ30",
+        "abstract": "Gebiete mit potentiell signifikantem Hochwasserrisiko (APSFR) für ein Hochwasser hoher Wahrscheinlichkeit (Wiederkehrsintervall durchschnittlich 30 Jahre) (Schnittmenge von Daten aus Abflussuntersuchu",
+        "bbox_wgs84": [
+          9.411,
+          46.445,
+          17.005,
+          48.908
+        ]
+      },
+      "Hochwasserrisikogebiete HQ300": {
+        "title": "Hochwasserrisikogebiete HQ300",
+        "abstract": "Gebiete mit potentiell signifikantem Hochwasserrisiko (APSFR) für ein Hochwasser hoher Wahrscheinlichkeit (Wiederkehrsintervall durchschnittlich 300 Jahre) (Schnittmenge von Daten aus Abflussuntersuch",
+        "bbox_wgs84": [
+          9.411,
+          46.456,
+          17.01,
+          48.908
+        ]
+      },
+      "Hochwasserueberflutungsflaechen HQ100": {
+        "title": "Hochwasserüberflutungsflächen HQ100",
+        "abstract": "Überflutungsflächen der Länder (Schnittmenge aus ABUs der Länder und HORA, teils auch Gefahrenzonenpläne BWV bzw. WLV)",
+        "bbox_wgs84": [
+          9.403,
+          46.4,
+          17.125,
+          49.013
+        ]
+      },
+      "Hochwasserueberflutungsflaechen HQ100 aus der Gefahrenzonenplanung": {
+        "title": "Hochwasserüberflutungsflächen HQ100 aus der Gefahrenzonenplanung",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.514508488362864,
+          46.2827354740198,
+          17.249647412829287,
+          49.11376212069045
+        ]
+      },
+      "Hochwasserueberflutungsflaechen HQ30": {
+        "title": "Hochwasserüberflutungsflächen HQ30",
+        "abstract": "Überflutungsflächen für ein Hochwasser hoher Wahrscheinlichkeit (Wiederkehrsintervall durchschnittlich 30 Jahre) (Schnittmenge von Daten aus Abflussuntersuchungen (ABU), Hochwasserrisikozonierung Aust",
+        "bbox_wgs84": [
+          9.407019498818988,
+          46.35196329740266,
+          17.191042108479017,
+          49.01280262467597
+        ]
+      },
+      "Hochwasserueberflutungsflaechen HQ30 aus der Gefahrenzonenplanung": {
+        "title": "Hochwasserüberflutungsflächen HQ30 aus der Gefahrenzonenplanung",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.514508488362864,
+          46.2827354740198,
+          17.249647412829287,
+          49.11376212069045
+        ]
+      },
+      "Hochwasserueberflutungsflaechen HQ300": {
+        "title": "Hochwasserüberflutungsflächen HQ300",
+        "abstract": "Überflutungsflächen der Länder (Schnittmenge aus ABUs der Länder und HORA, teils auch Gefahrenzonenpläne BWV bzw. WLV)",
+        "bbox_wgs84": [
+          9.402,
+          46.348,
+          17.2,
+          49.034
+        ]
+      },
+      "Hochwasserueberflutungsflaechen HQ300 aus der Gefahrenzonenplanung": {
+        "title": "Hochwasserüberflutungsflächen HQ300 aus der Gefahrenzonenplanung",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.514508280817926,
+          46.28224039205648,
+          17.257703185054396,
+          49.11378317783414
+        ]
+      },
+      "Internationale Flussgebietseinheiten der WRRL 2015": {
+        "title": "Internationale Flussgebietseinheiten der WRRL 2015",
+        "abstract": "Internationale Einheit für Bearbeitungs-, Koordinations- und Darstellungszwecke der Wasserrahmenrichtlinie; umfasst den österreichischen Anteil an den Internationalen Flussgebietseinheiten; aggregiert",
+        "bbox_wgs84": [
+          9.513,
+          46.245,
+          17.289,
+          49.132
+        ]
+      },
+      "Internationale Flussgebietseinheiten der WRRL 2021": {
+        "title": "Internationale Flussgebietseinheiten der WRRL 2021",
+        "abstract": "Internationale Einheit für Bearbeitungs-, Koordinations- und Darstellungszwecke der Wasserrahmenrichtlinie; umfasst den österreichischen Anteil an den Internationalen Flussgebietseinheiten; aggregiert",
+        "bbox_wgs84": [
+          9.513187454725164,
+          46.24548761690276,
+          17.289042248418944,
+          49.13206326289246
+        ]
+      },
+      "Isotopenniederschlagsmessstellen": {
+        "title": "Isotopenniederschlagsmessstellen",
+        "abstract": "Österreichisches Netzwerk für Isotopen im Niederschlag. Der Datensatz beinhaltet alle in der Gewässergüte-Fachdatenbank (H2O-DB) bis 31.08.2022 angelegten Messstellen (sowohl aktive als auch nicht meh",
+        "bbox_wgs84": [
+          9.669,
+          46.374,
+          16.902,
+          48.619
+        ]
+      },
+      "Isotopenoberflaechengewaessermessstellen": {
+        "title": "Isotopenoberflaechengewaessermessstellen",
+        "abstract": "Österreichisches Netzwerk für Isotopen im Oberflächengewässer. Der Datensatz beinhaltet alle in der Gewässergüte-Fachdatenbank (H2O-DB) bis 31.08.2022 angelegten Messstellen (sowohl aktive als auch ni",
+        "bbox_wgs84": [
+          9.509,
+          46.563,
+          16.968,
+          48.517
+        ]
+      },
+      "Kommunale Abwasserrichtlinie - Einleitepunkte": {
+        "title": "Kommunale Abwasserrichtlinie - Einleitepunkte",
+        "abstract": "Einleitepunkt kommunaler Klaeranlagen am Graphen des Berichtsgewässernetzes (BGN) mit einem Einwohnerwert groeßer gleich 2.000 EW60;",
+        "bbox_wgs84": [
+          9.474009106885386,
+          46.45696466527234,
+          17.182276207238733,
+          48.95787233659668
+        ]
+      },
+      "Kommunale Abwasserrichtlinie - Kläranlagen": {
+        "title": "Kommunale Abwasserrichtlinie - Kläranlagen",
+        "abstract": "Standort kommunaler Klaeranlagen mit einem Einwohnerwert groeßer gleich 2.000 EW60;",
+        "bbox_wgs84": [
+          9.473724461457241,
+          46.457529163697906,
+          17.15908958080935,
+          48.95739868498677
+        ]
+      },
+      "Kommunale Abwasserrichtlinie - Siedlungsgebiete": {
+        "title": "Kommunale Abwasserrichtlinie - Siedlungsgebiete",
+        "abstract": "Siedlungsgebiete (=Klaeranlagenstandort) mit einem Einwohnerwert groeßer gleich 2.000 EW60;",
+        "bbox_wgs84": [
+          9.4737244609124,
+          46.457529163680825,
+          17.159089580809393,
+          48.95739868498671
+        ]
+      },
+      "OWK Gesamteinzugsgebiete - NGP2015": {
+        "title": "OWK Gesamteinzugsgebiete - NGP2015",
+        "abstract": "Gesamt-Einzugsgebiete der Detailwasserkörper; NGP2015",
+        "bbox_wgs84": [
+          9.513,
+          46.246,
+          17.276,
+          49.132
+        ]
+      },
+      "OWK Gesamteinzugsgebiete -NGP2021": {
+        "title": "OWK Gesamteinzugsgebiete - NGP2021",
+        "abstract": "Einzugsgebiete der Detailoberflächenwasserkörper (Gesamtgebiete), NGP 2021",
+        "bbox_wgs84": [
+          9.513187332857001,
+          46.246298774750684,
+          17.27620185996197,
+          49.13206331823951
+        ]
+      },
+      "OWK Teileinzugsgebiete - NGP2015": {
+        "title": "OWK Teileinzugsgebiete - NGP2015",
+        "abstract": "Teil-Einzugsgebiete der Detailwasserkörper; NGP2015",
+        "bbox_wgs84": [
+          9.513,
+          46.246,
+          17.276,
+          49.132
+        ]
+      },
+      "OWK Teileinzugsgebiete - NGP2021": {
+        "title": "OWK Teileinzugsgebiete - NGP2021",
+        "abstract": "Teileinzugsgebiete der Detailwasserkörper NGP 2021; GGN v15",
+        "bbox_wgs84": [
+          9.513187332857001,
+          46.246298774750684,
+          17.27620185996197,
+          49.13206331823951
+        ]
+      },
+      "Oberflaechenwasserkoerper - Fliessgewaesser - NGP 2009": {
+        "title": "Oberflächenwasserkörper - Fliessgewässer - NGP 2009",
+        "abstract": "Oberflächenwasserkörper der Fliessgewässer (Flüsse) mit einem Einzugsgebiete > 10 km2 gem. Wasserrahmenrichtlinie (Detaileinteilung)",
+        "bbox_wgs84": [
+          9.401,
+          46.335,
+          17.189,
+          49.033
+        ]
+      },
+      "Oberflaechenwasserkoerper - Fliessgewaesser - NGP 2015": {
+        "title": "Oberflächenwasserkörper - Fliessgewässer - NGP 2015",
+        "abstract": "Oberflächenwasserkörper der Fliessgewässer (Flüsse) mit einem Einzugsgebiete > 10 km2 gem. Wasserrahmenrichtlinie (Detaileinteilung), NGP 2015",
+        "bbox_wgs84": [
+          9.513,
+          46.265,
+          17.251,
+          49.132
+        ]
+      },
+      "Oberflaechenwasserkoerper - Stehende Gewässer - NGP 2015": {
+        "title": "Oberflächenwasserkörper - Stehende Gewässer - NGP 2015",
+        "abstract": "",
+        "bbox_wgs84": [
+          8.848,
+          46.427,
+          17.041,
+          48.944
+        ]
+      },
+      "Oberflächenwasserkoerper - Stehende Gewaesser -  NGP 2009": {
+        "title": "Oberflächenwasserkörper - Stehende Gewässer -  NGP 2009",
+        "abstract": "Oberflächenwasserkörper der Stehenden Gewässer (Seen) mit einer Fläche > 0,5 km2 (Wasserkörper Seen ohne Inseln)",
+        "bbox_wgs84": [
+          8.779,
+          46.484,
+          16.977,
+          48.839
+        ]
+      },
+      "Oberflächenwasserkörper - Fliessgewässer - NGP 2021": {
+        "title": "Oberflächenwasserkörper - Fliessgewässer - NGP 2021",
+        "abstract": "Oberflächenwasserkörper der Fliessgewässer (Flüsse) mit einem Einzugsgebiete größer 10 km2 (Basis- und Detaileinteilung) - von den Bundesländern ausgewiesener Gewässerabschnitt, für den nach Vorgaben ",
+        "bbox_wgs84": [
+          9.513181052462448,
+          46.277108255881465,
+          17.25088443529268,
+          49.13213658982775
+        ]
+      },
+      "Oberflächenwasserkörper - Stehende Gewässer - NGP 2021": {
+        "title": "Oberflächenwasserkörper - Stehende Gewässer - NGP 2021",
+        "abstract": "Oberflächenwasserkörper der Stehenden Gewässer (Seen) mit einer Fläche > 0,5 km2 (Wasserkörper Seen ohne Inseln); GGN v1",
+        "bbox_wgs84": [
+          8.829407728941614,
+          46.42660291973746,
+          17.041005434727886,
+          48.94399965646856
+        ]
+      },
+      "Oekoregion - NGP 2009": {
+        "title": "Ökoregion - NGP 2009",
+        "abstract": "Oekoregionen - europaweite Einteilung von Gebieten mit homogener Struktur bezüglich Klima, Boden, Vegetation, Geologie,",
+        "bbox_wgs84": [
+          9.402,
+          46.317,
+          17.23,
+          49.033
+        ]
+      },
+      "PFRA_Future": {
+        "title": "Bewertung zukünftiger Hochwasserereignisse (PFRA)",
+        "abstract": "Bewertung des zukünftigen Hochwasserrisikos ausgewiesen als Überflutungsflächen (Ergebnis der vorläufigen Bewertung des Hochwasserrisikos)",
+        "bbox_wgs84": [
+          9.514508107891245,
+          46.29662292471672,
+          17.25770318477028,
+          49.113783175140796
+        ]
+      },
+      "PFRA_Past_Line": {
+        "title": "Signifikante vergangene Hochwasserereignisse (PFRA) Linien",
+        "abstract": "Signifikante vergangene Hochwassererignisse (PFRA) ausgewiesen als Gewässerstrecken (Ergebnis der vorläufigen Bewertung des Hochwasserrisikos)",
+        "bbox_wgs84": [
+          11.171651839543626,
+          46.541628251333854,
+          17.069434335550714,
+          48.76400010982602
+        ]
+      },
+      "PFRA_Past_Point": {
+        "title": "Signifikante vergangene Hochwasserereignisse (PFRA) Punkte",
+        "abstract": "Signifikante vergangene Hochwassererignisse (PFRA) ausgewiesen als Punkte (Ergebnis der vorläufigen Bewertung des Hochwasserrisikos)",
+        "bbox_wgs84": [
+          13.408692245452025,
+          48.12787982616984,
+          14.640168442708012,
+          48.45958022060552
+        ]
+      },
+      "PLANUNGSRAUM_2009": {
+        "title": "Planungsraum - NGP 2009",
+        "abstract": "Nationale Einheit für Bearbeitungs-, Koordinations- und Darstellungszwecke; Aggregierung von Einzugsgebieten, für Rhein und Elbe identisch mit Flussgebietseinheit, für Donau-Einzugsgebiet Teilung in 6",
+        "bbox_wgs84": [
+          9.402,
+          46.317,
+          17.23,
+          49.033
+        ]
+      },
+      "Planungsraum - NGP 2015": {
+        "title": "Planungsraum - NGP 2015",
+        "abstract": "Nationale Einheit für Bearbeitungs-, Koordinations- und Darstellungszwecke; Aggregierung von Einzugsgebieten, für Rhein und Elbe identisch mit Flussgebietseinheit, für Donau-Einzugsgebiet Teilung in 6",
+        "bbox_wgs84": [
+          9.513,
+          46.245,
+          17.289,
+          49.132
+        ]
+      },
+      "Planungsraum - NGP 2021": {
+        "title": "Planungsraum - NGP 2021",
+        "abstract": "Nationale Einheit für Bearbeitungs-, Koordinations- und Darstellungszwecke; Aggregierung von Einzugsgebieten, für Rhein und Elbe identisch mit Flussgebietseinheit, für Donau-Einzugsgebiet Teilung in 6",
+        "bbox_wgs84": [
+          9.513187454725164,
+          46.24548761690276,
+          17.289042248418944,
+          49.13206326289246
+        ]
+      },
+      "Querbauwerke - NGP 2021": {
+        "title": "Querbauwerke - NGP 2021",
+        "abstract": "Belastungen Oberflächengewässer - Querbauwerke der NGP-Datenbank, verortet auf Berichtsgewässernetz des Bundes V15",
+        "bbox_wgs84": [
+          9.577035727928013,
+          46.294613653390094,
+          17.119888864699345,
+          49.12744893400568
+        ]
+      },
+      "Querbauwerke - NGP2015": {
+        "title": "Querbauwerke - NGP2015",
+        "abstract": "Darstellung der Belastungen an Oberflächengewässern - Querbauwerke der NGP-Datenbank des Bundes",
+        "bbox_wgs84": [
+          9.541,
+          46.295,
+          17.12,
+          49.125
+        ]
+      },
+      "Restrisikozonen aus der Gefahrenzonenplanung": {
+        "title": "Zonen mit Gefährdung niedriger Wahrscheinlichkeit aus der Gefahrenzonenplanung",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.521280734946123,
+          46.571593500091225,
+          16.273833185941818,
+          48.51716000017546
+        ]
+      },
+      "Restwasserstrecken - NGP 2015": {
+        "title": "Restwasserstrecken - NGP 2015",
+        "abstract": "Darstellung der Belastungen an Oberflächengewässern - Restwasserstrecken der NGP-Datenbank des Bundes",
+        "bbox_wgs84": [
+          9.541,
+          46.3,
+          17.034,
+          49.108
+        ]
+      },
+      "Restwasserstrecken - NGP 2021": {
+        "title": "Restwasserstrecken - NGP 2021",
+        "abstract": "Belastungen Oberflächengewässer - Restwasserstrecken der NGP-Datenbank, umgelegt auf Berichtsgewässernetz des Bundes V15, NGP 2021",
+        "bbox_wgs84": [
+          9.54140640664069,
+          46.29743339392146,
+          16.900071316987717,
+          49.047673047239165
+        ]
+      },
+      "Rote Gefahrenzonen aus der Gefahrenzonenplanung": {
+        "title": "Rote Gefahrenzonen aus der Gefahrenzonenplanung",
+        "abstract": "",
+        "bbox_wgs84": [
+          9.541237878954247,
+          46.38813514850532,
+          16.961233259902503,
+          49.019925104641366
+        ]
+      },
+      "Schwallstrecken - NGP 2015": {
+        "title": "Schwallstrecken - NGP 2015",
+        "abstract": "Darstellung der Belastungen an Oberflächengewässern - Schwallstrecken der NGP-Datenbank des Bundes",
+        "bbox_wgs84": [
+          9.514,
+          46.615,
+          15.966,
+          49.028
+        ]
+      },
+      "Schwallstrecken - NGP 2021": {
+        "title": "Schwallstrecken - NGP 2021",
+        "abstract": "Darstellung der Belastungen an Oberflächengewässern - Schwallstrecken der NGP-Datenbank, umgelegt auf Berichtsgewässernetz des Bundes V15, NGP 2021",
+        "bbox_wgs84": [
+          9.514215233206865,
+          46.61496963982763,
+          15.965827867729631,
+          49.0275771743516
+        ]
+      },
+      "Seemessstellen": {
+        "title": "Seemessstellen",
+        "abstract": "Oberflächengewässermessnetz: Seemessstellen gemäß Gewässerzustandsüberwachungsverordnung (GZÜV) BGBl. Nr. 479/2006 i.d.g.F. Der Datensatz beinhaltet alle in der Gewässergüte-Fachdatenbank (H2O-DB) bis",
+        "bbox_wgs84": [
+          9.686,
+          46.528,
+          16.823,
+          48.29
+        ]
+      },
+      "Staustrecken - NGP 2015": {
+        "title": "Staustrecken - NGP 2015",
+        "abstract": "Darstellung der Belastungen an Oberflächengewässern - Staustrecken der NGP-Datenbank des Bundes",
+        "bbox_wgs84": [
+          9.769,
+          46.354,
+          17.193,
+          49.113
+        ]
+      },
+      "Staustrecken NGP 2021": {
+        "title": "Staustrecken - NGP 2021",
+        "abstract": "Darstellung der Belastungen an Oberflächengewässern - Staustrecken der NGP-Datenbank des Bundes, umgelegt auf Berichtsgewässernetz des Bundes v15, NGP 2021",
+        "bbox_wgs84": [
+          9.768939502476318,
+          46.36371206880855,
+          17.03678734763539,
+          49.11962136852791
+        ]
+      },
+      "Tiefengrundwassermessstellen": {
+        "title": "Tiefengrundwassermessstellen",
+        "abstract": "Grundwassermessnetz: Tiefengrundwassermessstellen gemäß Gewässerzustandsüberwachungsverordnung (GZÜV) BGBl. Nr. 479/2006 i.d.g.F. Der Datensatz beinhaltet alle in der Gewässergüte-Fachdatenbank (H2O-D",
+        "bbox_wgs84": [
+          13.227,
+          46.977,
+          16.577,
+          48.47
+        ]
+      },
+      "Wasserschongebiete - NGP 2015": {
+        "title": "Wasserschongebiete - NGP 2015",
+        "abstract": "Gebiet mit wichtigen Grundwasservorkommen mit besonderen Auflagen, Nutzungseinschränkungen, Verbote und Gebote, ausgewiesen wird dieses (meist größerers) Gebiet per Bescheid des Landeshauptmannes.",
+        "bbox_wgs84": [
+          9.521,
+          46.366,
+          17.22,
+          48.914
+        ]
+      },
+      "Wasserschongebiete - NGP 2021": {
+        "title": "Wasserschongebiete - NGP 2021",
+        "abstract": "Grundwasserschongebietsverordnungen zum Schutz von Trinkwasser (Bund - Länder)",
+        "bbox_wgs84": [
+          9.52074251550595,
+          46.366721858098984,
+          17.216862932877316,
+          48.923809929716334
+        ]
+      },
+      "Wasserschutzgebiete - NGP 2021": {
+        "title": "Wasserschutzgebiete - NGP 2021",
+        "abstract": "Wasserschutzgebiete der Länder für die Trinkwasserversorgung (Schutz von bestehenden Wasserversorgungsanlagen nach Wasserrechtsgesetz § 34 Abs 1)",
+        "bbox_wgs84": [
+          9.546232626670012,
+          46.29647803786277,
+          17.23500222573164,
+          49.11461224123799
+        ]
+      },
+      "Wasserwirtschaftliche Rahmenverfuegungen - NGP 2015": {
+        "title": "Wasserwirtschaftliche Rahmenverfügungen - NGP 2015",
+        "abstract": "Wasserwirtschaftliche Rahmenverfügungen (teils mit Wasserschongebieten identisch) - NGP 2015",
+        "bbox_wgs84": [
+          12.524,
+          46.483,
+          17.007,
+          48.589
+        ]
+      },
+      "Wasserwirtschaftliche Rahmenverfügungen - NGP 2021": {
+        "title": "Wasserwirtschaftliche Rahmenverfügungen - NGP 2021",
+        "abstract": "Wasserwirtschaftliche Rahmenverfügungen (teils mit Wasserschongebieten identisch) - NGP 2021",
+        "bbox_wgs84": [
+          12.523680035631402,
+          46.48319443177817,
+          17.007546293820294,
+          48.589260073879075
+        ]
+      }
+    }
+  }
+}
