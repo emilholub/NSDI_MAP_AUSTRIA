@@ -26,7 +26,7 @@ warnings.filterwarnings("ignore")
 # ── Paths ─────────────────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).parent
 DATASETS = BASE_DIR / "datasets"
-OUT_HTML = BASE_DIR / "austria_nsdi_map.html"
+OUT_HTML = BASE_DIR / "index.html"
 
 # ── WMS endpoints (from wms_layers.json) ──────────────────────────────────────
 WMS_BUILDINGS = "https://data.bev.gv.at/geoserver/BEVdataDLM/wms"
@@ -39,26 +39,91 @@ WMS_SOIL      = "https://inspire.lfrz.gv.at/000604/ows"
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def load_gpkg(name: str, layer_filter: str = None) -> gpd.GeoDataFrame:
-    """Load a GeoPackage, optionally filtering to one _layer value."""
+    """Load a GeoPackage with verbose diagnostics at every filtering step."""
+    from shapely.ops import transform as shp_transform
+    from shapely.geometry.base import BaseGeometry
+
     path = DATASETS / f"{name}.gpkg"
     if not path.exists():
-        print(f"  [SKIP] {name}.gpkg not found")
+        print(f"  [SKIP] {name}.gpkg — file not found at {path}")
         return None
+
     gdf = gpd.read_file(path)
-    if layer_filter and "_layer" in gdf.columns:
-        gdf = gdf[gdf["_layer"] == layer_filter]
+    print(f"  [{name}] raw rows: {len(gdf)}  |  "
+          f"columns: {list(gdf.columns)[:8]}{'…' if len(gdf.columns)>8 else ''}")
+
+    if "_layer" in gdf.columns:
+        print(f"  [{name}] _layer values: {gdf['_layer'].value_counts().to_dict()}")
+
+    if layer_filter:
+        if "_layer" not in gdf.columns:
+            print(f"  [{name}] WARNING — no _layer column, cannot filter to '{layer_filter}'")
+        else:
+            before = len(gdf)
+            gdf = gdf[gdf["_layer"] == layer_filter]
+            print(f"  [{name}] after _layer='{layer_filter}': {len(gdf)} / {before} rows")
+
+    before = len(gdf)
     gdf = gdf[gdf.geometry.notna() & ~gdf.geometry.is_empty]
-    if gdf.crs is None:
+    if len(gdf) < before:
+        print(f"  [{name}] dropped {before - len(gdf)} null/empty geometries")
+
+    if len(gdf) == 0:
+        print(f"  [{name}] ✗ EMPTY after filtering — layer will not appear on map")
+        return None
+
+    # Geometry type breakdown
+    geom_types = gdf.geometry.geom_type.value_counts().to_dict()
+    print(f"  [{name}] geometry types: {geom_types}")
+
+    # CRS — detect if coordinates look projected (values >> 180) even when
+    # the file claims EPSG:4326 (common with CRS-less GML files)
+    raw_bounds = gdf.total_bounds
+    looks_projected = raw_bounds[2] > 1000 or raw_bounds[3] > 1000
+
+    if looks_projected:
+        # Try Austrian projections in order of likelihood
+        AUSTRIAN_CRS = [31287, 31256, 31255, 31257, 3416, 32633]
+        import pyproj
+        reprojected = False
+        for epsg in AUSTRIAN_CRS:
+            try:
+                test = gdf.set_crs(epsg=epsg, allow_override=True).to_crs(epsg=4326)
+                tb = test.total_bounds
+                if 8 < tb[0] < 18 and 46 < tb[1] < 50:
+                    print(f"  [{name}] CRS was wrong/missing — forced EPSG:{epsg} → EPSG:4326 ✓")
+                    gdf = test
+                    reprojected = True
+                    break
+            except Exception:
+                continue
+        if not reprojected:
+            print(f"  [{name}] ⚠ Could not auto-detect CRS — coords may be wrong")
+    elif gdf.crs is None:
+        print(f"  [{name}] no CRS — assuming EPSG:4326")
         gdf = gdf.set_crs(epsg=4326)
     elif gdf.crs.to_epsg() != 4326:
+        print(f"  [{name}] reprojecting {gdf.crs} → EPSG:4326")
         gdf = gdf.to_crs(epsg=4326)
+
     # Strip Z coordinates — GML files often carry elevation values that break
     # GeoJSON serialisation in some Leaflet/browser combinations
-    from shapely.ops import transform
-    gdf["geometry"] = gdf["geometry"].apply(
-        lambda geom: transform(lambda x, y, *_: (x, y), geom) if geom is not None else geom
-    )
-    return gdf if len(gdf) > 0 else None
+    has_z = gdf.geometry.apply(lambda g: g.has_z if isinstance(g, BaseGeometry) else False).any()
+    if has_z:
+        print(f"  [{name}] stripping Z coordinates")
+        gdf["geometry"] = gdf["geometry"].apply(
+            lambda g: shp_transform(lambda x, y, *_: (x, y), g) if g is not None else g
+        )
+
+    # Bounds sanity check
+    bounds = gdf.total_bounds  # [minx, miny, maxx, maxy]
+    print(f"  [{name}] bounds: lon {bounds[0]:.3f}→{bounds[2]:.3f}  "
+          f"lat {bounds[1]:.3f}→{bounds[3]:.3f}")
+    if not (7 < bounds[0] < 18 and 46 < bounds[1] < 50):
+        print(f"  [{name}] ⚠ WARNING — bounds look wrong for Austria, check CRS")
+
+    print(f"  [{name}] ✓ ready  ({len(gdf)} features)")
+    return gdf
 
 
 def gdf_to_layer(
@@ -87,17 +152,23 @@ def gdf_to_layer(
         tooltip = None
 
     folium.GeoJson(
-        gdf.__geo_interface__,
+        gdf.to_json(),          # more robust than __geo_interface__ for GML data
         style_function=lambda _: style,
         tooltip=tooltip,
     ).add_to(fg)
     return fg
 
 
-def add_wms(m, name, url, layers, show=False, attribution="", opacity=1.0, min_zoom=0):
+def add_wms(m, name, url, layers, show=False, attribution="", opacity=1.0, min_zoom=0, extra_params=None):
     """Add a WMS tile layer to the map."""
+    # Append any extra WMS params (e.g. SLD_BODY) directly to the URL
+    wms_url = url
+    if extra_params:
+        import urllib.parse
+        sep = "&" if "?" in url else "?"
+        wms_url = url + sep + urllib.parse.urlencode(extra_params)
     folium.raster_layers.WmsTileLayer(
-        url=url,
+        url=wms_url,
         name=name,
         layers=layers,
         fmt="image/png",
@@ -138,9 +209,10 @@ def dam_popup(row) -> str:
 def build_map():
     print("\n=== Building Austria NSDI Map ===\n")
 
+    # Innsbruck — Inn riverbank at the Alte Innbrücke
     m = folium.Map(
-        location=[47.5, 13.5],
-        zoom_start=7,
+        location=[47.2682, 11.3933],
+        zoom_start=15,
         max_zoom=19,
         tiles=None,
     )
@@ -154,11 +226,20 @@ def build_map():
         show=True,
     ).add_to(m)
 
-    # Fallback with subtle labels if needed
+    # CartoDB no-labels — subtle grey, no roads
     folium.TileLayer(
         tiles="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",
         attr="© OpenStreetMap contributors © CARTO",
         name="CartoDB (no labels)",
+        show=False,
+    ).add_to(m)
+
+    # Admin boundaries only — pure white + Stamen Toner Lines (coastlines + borders only)
+    # White canvas + admin/border lines only (Stamen Toner Lines)
+    folium.TileLayer(
+        tiles="https://tiles.stadiamaps.com/tiles/stamen_toner_lines/{z}/{x}/{y}{r}.png",
+        attr="© Stadia Maps © Stamen Design © OpenStreetMap",
+        name="Admin Boundaries Only",
         show=False,
     ).add_to(m)
 
@@ -167,48 +248,91 @@ def build_map():
 
     add_wms(m, "DTM – BEV ALS 2023",
             WMS_DTM, "EL_ALS_DTM",
-            attribution="© BEV")
+            attribution="© BEV",
+            show=False)
 
     add_wms(m, "Buildings & Structures (BEV DLM)",
             WMS_BUILDINGS, "BWK_8100_BAUWERK_F",
             attribution="© BEV DLM",
-            min_zoom=14)
+            min_zoom=14,
+            show=True)
+
+    add_wms(m, "Roads (BEV DLM)",
+            WMS_BUILDINGS, "VER_1100_STRASSE_L",
+            attribution="© BEV DLM",
+            min_zoom=10,
+            show=True)
+
+    add_wms(m, "Railways (BEV DLM)",
+            WMS_BUILDINGS, "VER_1300_BAHN_L",
+            attribution="© BEV DLM",
+            min_zoom=10,
+            show=True)
 
     add_wms(m, "Power Lines (BEV DLM)",
             WMS_BUILDINGS, "BAU_2700_STROMLEITUNG_L",
             attribution="© BEV DLM",
-            min_zoom=12)
+            min_zoom=12,
+            show=True)
 
+    # HQ30: opacity 0.5, no outline via SLD_BODY (fill only)
     add_wms(m, "Flood Inundation – HQ30",
             WMS_FLOOD, "Hochwasserueberflutungsflaechen HQ30",
-            attribution="© LFRZ / HWRL")
+            attribution="© LFRZ / HWRL",
+            show=True,
+            opacity=0.5,
+            extra_params={
+                "SLD_BODY": (
+                    '<?xml version="1.0"?>'
+                    '<StyledLayerDescriptor version="1.0.0"'
+                    ' xmlns="http://www.opengis.net/sld"'
+                    ' xmlns:ogc="http://www.opengis.net/ogc"'
+                    ' xmlns:se="http://www.opengis.net/se">'
+                    '<NamedLayer><Name>Hochwasserueberflutungsflaechen HQ30</Name>'
+                    '<UserStyle><se:FeatureTypeStyle><se:Rule>'
+                    '<se:PolygonSymbolizer>'
+                    '<se:Fill><se:SvgParameter name="fill">#4A90D9</se:SvgParameter>'
+                    '<se:SvgParameter name="fill-opacity">1</se:SvgParameter></se:Fill>'
+                    '<se:Stroke><se:SvgParameter name="stroke-width">0</se:SvgParameter>'
+                    '<se:SvgParameter name="stroke-opacity">0</se:SvgParameter></se:Stroke>'
+                    '</se:PolygonSymbolizer>'
+                    '</se:Rule></se:FeatureTypeStyle></UserStyle></NamedLayer>'
+                    '</StyledLayerDescriptor>'
+                )
+            })
 
     add_wms(m, "Flood Inundation – HQ100",
             WMS_FLOOD, "Hochwasserueberflutungsflaechen HQ100",
-            attribution="© LFRZ / HWRL")
+            attribution="© LFRZ / HWRL",
+            show=False)
 
     add_wms(m, "Flood Inundation – HQ300",
             WMS_FLOOD, "Hochwasserueberflutungsflaechen HQ300",
-            attribution="© LFRZ / HWRL")
+            attribution="© LFRZ / HWRL",
+            show=False)
 
     add_wms(m, "Significant Flood Risk Areas (APSFR)",
             WMS_FLOOD, "APSFR",
-            attribution="© LFRZ / HWRL")
+            attribution="© LFRZ / HWRL",
+            show=False)
 
     add_wms(m, "Danger Zones – Red (Gefahrenzonenplan)",
             WMS_FLOOD, "Rote Gefahrenzonen aus der Gefahrenzonenplanung",
-            attribution="© LFRZ")
+            attribution="© LFRZ",
+            show=False)
 
     add_wms(m, "Danger Zones – Yellow (Gefahrenzonenplan)",
             WMS_FLOOD, "Gelbe Gefahrenzonen aus der Gefahrenzonenplanung",
-            attribution="© LFRZ")
+            attribution="© LFRZ",
+            show=False)
 
     # ── Soil WMS layers (BFW Agricultural Soil Map) ───────────────────────────
     add_wms(m, "Soil – WRB Reference Soil Group",
             WMS_SOIL,
             "Agricultural Soil Map of Austria - Soil Reference Group Code from the World Reference Base (WRB Lev1)",
             attribution="© BFW",
-            opacity=0.45)
+            opacity=0.45,
+            show=False)
 
     # ── Vector layers ─────────────────────────────────────────────────────────
     print("Loading vector layers …")
@@ -232,7 +356,8 @@ def build_map():
                 show=True,
             ).add_to(m)
         else:
-            print("  Roads: no line geometry found — check roads.gpkg layer names")
+            print("  Roads: WFS source has no line geometry — "
+                  "consider adding a BEV DLM roads WMS layer instead")
 
         eroads = roads_all[
             (roads_all["_layer"] == "tn-ro:ERoad") & line_mask
@@ -259,11 +384,17 @@ def build_map():
     railways = load_gpkg("railways")
     if railways is not None:
         print(f"  Railways:   {len(railways)} features")
+        # Sanitise column names — GML often produces cols like "tn-ra:foo"
+        # which break GeoJSON tooltip lookup; replace non-alphanumeric with _
+        import re
+        railways.columns = [
+            re.sub(r"[^a-zA-Z0-9_]", "_", c) for c in railways.columns
+        ]
         gdf_to_layer(
-            railways, "Railways (ÖBB)",
-            color="#8e44ad", weight=1.5,
+            railways, "Railways – GML vector (ÖBB)",
+            color="#8e44ad", weight=1.8,
             tooltip_cols=["gml_id", "name", "_layer"],
-            show=True,
+            show=False,   # DLM WMS railway is the primary; keep this for tooltip queries
         ).add_to(m)
 
     dams = load_gpkg("dams")
