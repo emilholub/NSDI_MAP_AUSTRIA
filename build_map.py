@@ -275,32 +275,12 @@ def build_map():
             min_zoom=12,
             show=True)
 
-    # HQ30: opacity 0.5, no outline via SLD_BODY (fill only)
+    # HQ30: server renders grey; CSS filter shifts to light blue client-side
     add_wms(m, "Flood Inundation – HQ30",
             WMS_FLOOD, "Hochwasserueberflutungsflaechen HQ30",
             attribution="© LFRZ / HWRL",
             show=True,
-            opacity=0.5,
-            extra_params={
-                "SLD_BODY": (
-                    '<?xml version="1.0"?>'
-                    '<StyledLayerDescriptor version="1.0.0"'
-                    ' xmlns="http://www.opengis.net/sld"'
-                    ' xmlns:ogc="http://www.opengis.net/ogc"'
-                    ' xmlns:se="http://www.opengis.net/se">'
-                    '<NamedLayer><Name>Hochwasserueberflutungsflaechen HQ30</Name>'
-                    '<UserStyle><se:FeatureTypeStyle><se:Rule>'
-                    '<se:PolygonSymbolizer>'
-                    '<se:Fill><se:SvgParameter name="fill">#4A90D9</se:SvgParameter>'
-                    '<se:SvgParameter name="fill-opacity">1</se:SvgParameter></se:Fill>'
-                    '<se:Stroke><se:SvgParameter name="stroke-width">0</se:SvgParameter>'
-                    '<se:SvgParameter name="stroke-opacity">0</se:SvgParameter></se:Stroke>'
-                    '</se:PolygonSymbolizer>'
-                    '</se:Rule></se:FeatureTypeStyle></UserStyle></NamedLayer>'
-                    '</StyledLayerDescriptor>'
-                )
-            })
-
+            opacity=0.6)
     add_wms(m, "Flood Inundation – HQ100",
             WMS_FLOOD, "Hochwasserueberflutungsflaechen HQ100",
             attribution="© LFRZ / HWRL",
@@ -428,6 +408,28 @@ def build_map():
     plugins.MousePosition(position="bottomright").add_to(m)
     plugins.MiniMap(toggle_display=True).add_to(m)
     # ── Scale bar + zoom-based layer visibility ──────────────────────────────
+    # CSS filter: shifts server-rendered grey HQ30 tiles to light blue
+    m.get_root().script.add_child(folium.Element("""
+    document.addEventListener('DOMContentLoaded', function() {
+      function applyHQ30Filter() {
+        var map = Object.values(window).find(function(v) {
+          return v && v._leaflet_id !== undefined && typeof v.addControl === 'function';
+        });
+        if (!map) return;
+        map.eachLayer(function(layer) {
+          if (layer.options && layer.options.layers &&
+              layer.options.layers.indexOf('HQ30') !== -1 &&
+              layer._container) {
+            layer._container.style.filter =
+              'hue-rotate(195deg) saturate(3) brightness(1.6)';
+          }
+        });
+      }
+      setTimeout(applyHQ30Filter, 800);
+      document.addEventListener('tileload', applyHQ30Filter);
+    });
+    """))
+
     m.get_root().script.add_child(folium.Element("""
     document.addEventListener('DOMContentLoaded', function() {
       var map = Object.values(window).find(function(v){
