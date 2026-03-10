@@ -161,7 +161,6 @@ def gdf_to_layer(
 
 def add_wms(m, name, url, layers, show=False, attribution="", opacity=1.0, min_zoom=0, extra_params=None):
     """Add a WMS tile layer to the map."""
-    # Append any extra WMS params (e.g. SLD_BODY) directly to the URL
     wms_url = url
     if extra_params:
         import urllib.parse
@@ -178,6 +177,8 @@ def add_wms(m, name, url, layers, show=False, attribution="", opacity=1.0, min_z
         show=show,
         opacity=opacity,
         min_zoom=min_zoom,
+        max_zoom=19,          # keep requesting tiles at all zoom levels
+        max_native_zoom=19,   # prevents Leaflet upscaling/stopping at server max
     ).add_to(m)
 
 
