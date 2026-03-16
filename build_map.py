@@ -6,7 +6,8 @@ Builds an interactive multi-layer map from:
   • waterways.gpkg  (WFS vector)
   • railways.gpkg   (converted from GML)
   • dams.gpkg       (converted from Stauanlagen.xlsx)
-  • WMS tile layers: buildings, DTM, flood zones (HQ30/100/300, APSFR)
+  • WMS tile layers: buildings, DTM, flood zones (HQ30/100/300, APSFR),
+  •                  water infrastructure (pipelines, hydraulic structures, rivers)
 
 Output: austria_nsdi_map.html
 
@@ -272,6 +273,40 @@ def build_map():
 
     add_wms(m, "Power Lines (BEV DLM)",
             WMS_BUILDINGS, "BAU_2700_STROMLEITUNG_L",
+            attribution="© BEV DLM",
+            min_zoom=12,
+            show=True)
+
+    # ── Water infrastructure (BEV DLM) ───────────────────────────────────────
+    # Water body polygons + river network — contextual backdrop for infra layers
+    add_wms(m, "Water Bodies (BEV DLM)",
+            WMS_BUILDINGS, "BOD_5300_WASSER_F",
+            attribution="© BEV DLM",
+            min_zoom=10,
+            show=False)
+
+    add_wms(m, "Rivers & Streams (BEV DLM)",
+            WMS_BUILDINGS, "GEW_4100_FLIESSEND_L",
+            attribution="© BEV DLM",
+            min_zoom=10,
+            show=False)
+
+    # Critical water infrastructure — supply pipelines (mountain spring,
+    # pressure pipes) and hydraulic structures (springs, sluices, weirs, piers)
+    add_wms(m, "Water Supply Pipelines (BEV DLM)",
+            WMS_BUILDINGS, "GEW_4200_VERSORGUNG_L",
+            attribution="© BEV DLM",
+            min_zoom=12,
+            show=True)
+
+    add_wms(m, "Hydraulic Structures – Points (BEV DLM)",
+            WMS_BUILDINGS, "GEW_4300_BAUTEN_P",
+            attribution="© BEV DLM",
+            min_zoom=12,
+            show=True)
+
+    add_wms(m, "Hydraulic Structures – Lines (BEV DLM)",
+            WMS_BUILDINGS, "GEW_4400_BAUTEN_L",
             attribution="© BEV DLM",
             min_zoom=12,
             show=True)
